@@ -10,7 +10,7 @@ public class CourseOutcome {
 	private int hours;
 	
 	//Constructor
-	CourseOutcome (String studentID, String courseName, double grade, int hours) {
+	public CourseOutcome (String studentID, String courseName, double grade, int hours) {
 		this.studentID = studentID;
 		this.courseName = courseName;
 		this.grade = grade;
@@ -19,7 +19,7 @@ public class CourseOutcome {
 	
 	//Public default string return
 	public String toString() {
-		return studentID + " scored " + String.valueOf(grade) + " in " + courseName + ", " + String.valueOf(hours) + " hours.";
+		return studentID + " scored " + grade + " in " + courseName + ", " + hours + " hours.";
 	}
 	
 	//Equal outcome method
