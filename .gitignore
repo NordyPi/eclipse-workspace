@@ -2,3 +2,4 @@
 .metadata/.log
 *.ini
 *.ini
+.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index
