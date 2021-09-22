@@ -5,7 +5,9 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		DUDraw.enableDoubleBuffering();
-		//DUDraw.setCanvasSize(100, 100);
+		DUDraw.setCanvasSize(512, 512);
+		DUDraw.setXscale(0.0, 100.0);
+		DUDraw.setYscale(0.0, 100.0);
 		Player p = new Player();
 		
 		while (true) {
