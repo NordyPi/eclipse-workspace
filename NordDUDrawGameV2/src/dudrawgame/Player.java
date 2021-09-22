@@ -1,4 +1,4 @@
-package norddudrawgame;
+package dudrawgame;
 import edu.du.dudraw.DUDraw;
 
 public class Player {
