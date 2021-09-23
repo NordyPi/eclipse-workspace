@@ -12,7 +12,6 @@ public class Lab03Driver {
 		order1.addPizza(pizza1);
 		order1.addPizza(pizza2);
 		
-		order1.printOrder();
 		
 		PizzaOrder order2 = new PizzaOrder();
 		
@@ -24,19 +23,20 @@ public class Lab03Driver {
 		order2.addPizza(pizza4);
 		order2.addPizza(pizza5);
 		
-		order2.printOrder();
 	
 		PizzaOrder order3 = order2;
-		order3.printOrder();
-		
+	
 		order1.changePizzaToppings(1, 5, 5, 5);
-		order1.printOrder();
 		
 		order2.changePizzaToppings(2, 7, 7, 7);
-		order2.printOrder();
-		order3.printOrder();
 		
 		
+		PizzaOrder order4 = new PizzaOrder(order1);
+		order4.addPizza(pizza3);
+		order1.printOrder();
+		order4.printOrder();
+		order1.changePizzaToppings(0, 8, 8, 8);
+		order1.printOrder();
 	}
 
 }

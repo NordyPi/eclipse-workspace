@@ -28,6 +28,16 @@ public class PizzaOrder {
 		pizzas = new Pizza[MAX_NUM_PIZZAS];
 		numPizzas = 0;
 	}
+	
+	//copy constructor
+	public PizzaOrder(PizzaOrder other) {
+		this.numPizzas = other.numPizzas;
+		this.pizzas = new Pizza[other.pizzas.length];
+		
+		for (int i = 0; i < other.numPizzas; i++) {
+			this.pizzas[i] = new Pizza(other.pizzas[i]);
+		}
+	}
 
 	/*
 	 * Adds a pizza to the order
