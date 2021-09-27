@@ -27,6 +27,13 @@ public class Pizza {
 		numHamToppings = 0;
 		numPepperoniToppings = 0;
 	}
+	
+	public Pizza(Pizza other) {
+		this.size = other.size;
+		this.numCheeseToppings = other.numCheeseToppings;
+		this.numHamToppings = other.numHamToppings;
+		this.numPepperoniToppings = other.numPepperoniToppings;
+	}
 
 	/*
 	 * Constructor takes 4 arguments: size of pizza, num of cheese toppings, 
