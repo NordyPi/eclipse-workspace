@@ -21,7 +21,7 @@ public class TicTacToe {
 			this.col = col;
 		}
 		public String toString() {
-			return this.contains.toString() + row + col;
+			return this.contains.toString() + " X:" + col + " Y:" + row;
 		}
 		
 	}
@@ -62,29 +62,42 @@ public class TicTacToe {
 		DUDraw.line(0, 2, 3, 2);
 		DUDraw.text(1.5, 3.25, this.message);
 
-		//TODO: Draw the board
-
-	}
+		for(int r = 0; r < 3; r++) {
+			for(int c = 0; c < 3; c++) {
+				if (board[r][c].contains == Contents.EX) {
+					DUDraw.square(c + 0.5, r + 0.5, 0.1);
+					}
+				if (board[r][c].contains == Contents.OH) {
+					DUDraw.circle(c + 0.5, r + 0.5, 0.1);
+					}
+				}
+			}
+		}
 
 	public void playGame() {
 		DUDraw.enableDoubleBuffering();
 		do {
 
 			//Checks to see if mouse is pressed. if it is, changes the clicked cell to the symbol of whoever's turn it is
+			//If it isn't empty, dont write anything
 			if(DUDraw.isMousePressed()) {
-				if (Xturn) {
-					board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].contains = Contents.EX;
-					this.message = "It's O's Turn";
+				if (board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].contains == Contents.EMPTY) {
+					if (Xturn) {
+						board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].contains = Contents.EX;
+						this.message = "It's O's Turn";
+					}
+					else {
+						board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].contains = Contents.OH;
+						this.message = "It's X's turn";
+					}
+					this.Xturn = !Xturn;
+					System.out.println(Xturn);
+					System.out.println(board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].toString());
 				}
-				else {
-					board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].contains = Contents.OH;
-					this.message = "It's X's turn";
-				}
-				System.out.println(board[(int)DUDraw.mouseY()][(int)DUDraw.mouseX()].toString());
+				//Also toggles the turn message. And then toggles the turn bool
 			}
-			//Also toggles the turn message. And then toggles the turn bool
-			this.Xturn = !Xturn;
 
+			draw();
 			DUDraw.show();
 			DUDraw.pause(100);
 
@@ -95,6 +108,7 @@ public class TicTacToe {
 		} else {
 			message = "Game over, it's a tie!";
 		}
+		System.out.println("drew");
 		draw();
 		DUDraw.show();
 	}
@@ -104,11 +118,27 @@ public class TicTacToe {
 		// Returns true if a row, column or diagonal contains all O's or X's
 		// Note: you may want to make use of the wins() method below.
 		
-		//TODO: check each row
+		//Checks the rows
+		for(int r = 0; r < 3; r++) {
+			if(wins(board[r][0].contains, board[r][1].contains, board[r][2].contains)) {
+				return true;
+			}
+		}
 		
-		//TODO: check each column
+		//Checks the columns
+		for(int c = 0; c < 3; c++) {
+			if(wins(board[0][c].contains, board[1][c].contains, board[2][c].contains)) {
+				return true;
+			}
+		}
+		//Check the diagonals
+		if(wins(board[0][0].contains, board[1][1].contains, board[2][2].contains)){
+			return true;
+		}
 		
-		//TODO: check diagonals
+		if(wins(board[0][2].contains, board[1][1].contains, board[2][0].contains)){
+			return true;
+		}
 
 		return false;
 
@@ -122,9 +152,15 @@ public class TicTacToe {
 	}
 
 	private boolean allFilled() {
-
-		//TODO: Method returns true if all cells are filled
-		return false;
+		boolean notFilled = true;
+		for(int r = 0; r < 3; r++) {
+			for(int c = 0; c < 3; c++) {
+				if(board[r][c].contains == Contents.EMPTY) {
+					notFilled = false;
+				}
+			}
+		}
+		return notFilled;
 	}
 	
 }
