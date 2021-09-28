@@ -124,7 +124,7 @@ public class TicTacToe {
 	private boolean allFilled() {
 
 		//TODO: Method returns true if all cells are filled
-		return true;
+		return false;
 	}
 	
 }
