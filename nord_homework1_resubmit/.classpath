@@ -7,6 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DUDraw"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DUDRAW"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/du draw"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,22 +4,28 @@ import edu.du.dudraw.DUDraw;
 
 public class TicTacToe {
 
+	//Enumerator for cell contents
     public enum Contents {
     	EMPTY,
 		EX,
     	OH
     }
-		
+	
+    //sets up the inner class to hold cell data in our tictactoe board.
 	private class Cell {
+		
+		//Instance variables. Although private, can 
 		private Contents contains;
 		private int row;
 		private int col;
+		
 		//Default constructor sets cell to empty to start
 		public Cell(int row, int col) {
 			this.contains = Contents.EMPTY;
 			this.row = row;
 			this.col = col;
 		}
+		//To string method for debugging purposes.
 		public String toString() {
 			return this.contains.toString() + " X:" + col + " Y:" + row;
 		}
