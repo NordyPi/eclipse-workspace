@@ -194,35 +194,23 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_o58P8B_NEey99qzHqUPJSg" elementId="org.eclipse.ui.editorss" selectedElement="_o58P8R_NEey99qzHqUPJSg">
-      <children xsi:type="basic:PartStack" xmi:id="_o58P8R_NEey99qzHqUPJSg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_iK0awCC4EeyMXMjCArK0oQ">
+      <children xsi:type="basic:PartStack" xmi:id="_o58P8R_NEey99qzHqUPJSg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_jCAQkB_rEeyXNpl-hfxxgA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_zDjRUB_aEey99qzHqUPJSg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TicTacToeDriver.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TicTacToeDriver.java&quot; partName=&quot;TicTacToeDriver.java&quot; title=&quot;TicTacToeDriver.java&quot; tooltip=&quot;NordLab05/src/nordlab05/TicTacToeDriver.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/NordLab05/src/nordlab05/TicTacToeDriver.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;192&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TicTacToeDriver.java&quot; partName=&quot;TicTacToeDriver.java&quot; title=&quot;TicTacToeDriver.java&quot; tooltip=&quot;NordLab05/src/nordlab05/TicTacToeDriver.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/NordLab05/src/nordlab05/TicTacToeDriver.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;201&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_jCAQkB_rEeyXNpl-hfxxgA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TicTacToe.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TicTacToe.java&quot; partName=&quot;TicTacToe.java&quot; title=&quot;TicTacToe.java&quot; tooltip=&quot;NordLab05/src/nordlab05/TicTacToe.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/NordLab05/src/nordlab05/TicTacToe.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;61&quot; selectionOffset=&quot;1155&quot; selectionTopPixel=&quot;450&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_iK0awCC4EeyMXMjCArK0oQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="DUDrawTest.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DUDrawTest.java&quot; partName=&quot;DUDrawTest.java&quot; title=&quot;DUDrawTest.java&quot; tooltip=&quot;nord_homework1_resubmit/src/nord_homework1_resubmit/DUDrawTest.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/nord_homework1_resubmit/src/nord_homework1_resubmit/DUDrawTest.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;626&quot; selectionTopPixel=&quot;45&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TicTacToe.java&quot; partName=&quot;TicTacToe.java&quot; title=&quot;TicTacToe.java&quot; tooltip=&quot;NordLab05/src/nordlab05/TicTacToe.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/NordLab05/src/nordlab05/TicTacToe.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;64&quot; selectionOffset=&quot;3966&quot; selectionTopPixel=&quot;1891&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_dZ00ICC8EeyMXMjCArK0oQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="numbers.txt" iconURI="platform:/plugin/org.eclipse.ui.editors/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;numbers.txt&quot; partName=&quot;numbers.txt&quot; title=&quot;numbers.txt&quot; tooltip=&quot;nord_homework1_resubmit/src/nord_homework1_resubmit/numbers.txt&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/nord_homework1_resubmit/src/nord_homework1_resubmit/numbers.txt&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;10&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.ui.DefaultTextEditor</tags>
         </children>
       </children>
     </sharedElements>
@@ -371,7 +359,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oxYw4B_NEey99qzHqUPJSg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_atKIoCCzEeyMXMjCArK0oQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ofESIh_NEey99qzHqUPJSg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PNcZQCFREeyhs9psJRetxg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_ofESIh_NEey99qzHqUPJSg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oxYw4R_NEey99qzHqUPJSg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -402,7 +390,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oxZX8B_NEey99qzHqUPJSg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_atL91CCzEeyMXMjCArK0oQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ofDq2R_NEey99qzHqUPJSg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PNe1gCFREeyhs9psJRetxg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_ofDq2R_NEey99qzHqUPJSg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_oxZX8R_NEey99qzHqUPJSg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
