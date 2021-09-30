@@ -60,6 +60,7 @@ public class TicTacToe {
 	}
 
 	public void draw() {
+		System.out.println("drew");
 		DUDraw.clear(DUDraw.WHITE);
 		DUDraw.setPenColor(DUDraw.BLACK);
 		DUDraw.line(1, 0, 1, 3);
@@ -83,6 +84,7 @@ public class TicTacToe {
 	public void playGame() {
 		DUDraw.enableDoubleBuffering();
 		do {
+			System.out.println("ran");
 
 			//Checks to see if mouse is pressed. if it is, changes the clicked cell to the symbol of whoever's turn it is
 			//If it isn't empty, dont write anything
@@ -109,6 +111,8 @@ public class TicTacToe {
 
 			// Check game end conditions
 		} while (!gameWon() && !allFilled());
+		System.out.println("ended");
+		
 		if (gameWon()) {
 			message = Xturn ? "Game over, O wins!" : "Game over, X wins!";
 		} else {
