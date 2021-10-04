@@ -8,6 +8,7 @@ public class Game implements Runnable {
 	Player p = new Player();
 	private int xSize;
 	private int ySize;
+	Food testFood = new Food(1);
 	
 	public Game() {
 		xSize = 1024;
@@ -38,7 +39,12 @@ public class Game implements Runnable {
 	
 	public void update() {
 		p.move();
+		DUDraw.setPenColor(DUDraw.BLACK);
 		DUDraw.filledSquare(p.getCoords()[0], p.getCoords()[1], p.getSize());
+		
+		//TODO: Make loop to draw all food
+		DUDraw.setPenColor(testFood.getColor());
+		DUDraw.filledCircle(testFood.getXPos(), testFood.getYPos(), 1);
 	}
 	
 	@Override
@@ -52,8 +58,6 @@ public class Game implements Runnable {
 	        delta += (now - lastTime) / ns;
 	        lastTime = now;
 	        while(delta >= 1){
-	        	//Update
-	        	//Render
 	        	DUDraw.clear();
 				update();
 				DUDraw.show();
@@ -65,6 +69,9 @@ public class Game implements Runnable {
 	
 	public static void main(String[] args) {
 		Game game = new Game();
+		
+		//TODO: Make lots of food with a loop
+		
 		game.configureCanvas();
 		game.start();
 	}
