@@ -11,4 +11,5 @@
     <fullyQualifiedTypeName name="edu.du.dudraw.DUDraw"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="nordlab07.HockeyPlayer.Positions"/>
 </qualifiedTypeNameHistroy>

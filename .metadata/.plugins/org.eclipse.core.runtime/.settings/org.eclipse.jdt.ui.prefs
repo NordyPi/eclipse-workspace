@@ -1,7 +1,7 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=f88e81be6a7264b5a0327d892bb73ee7a570a957
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="nordlab07.HockeyPlayer$Positions"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="nordlab07.HockeyPlayer$Positions"/></lhs><lhs name\="nordlab07.HockeyPlayer$Positions"><rhs name\="nordlab07.HockeyPlayer$Positions"/></lhs></history>
 content_assist_number_of_computers=12
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
