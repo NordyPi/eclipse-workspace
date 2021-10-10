@@ -1,6 +1,6 @@
 package dudrawgame;
-import java.awt.event.KeyEvent;
 
+import java.awt.event.KeyEvent;
 import edu.du.dudraw.DUDraw;
 
 public class Player {
