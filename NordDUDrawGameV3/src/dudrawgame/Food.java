@@ -32,8 +32,8 @@ public class Food {
 		this.id = id;
 		
 		Random ran = new Random();
-		this.yPos = ran.nextInt(1024);
-		this.xPos = ran.nextInt(1024);
+		this.yPos = ran.nextInt(Game.getXSize());
+		this.xPos = ran.nextInt(Game.getYSize());
 		this.color = COLOR_LIST[ran.nextInt(7)];
 	}
 	
@@ -47,6 +47,10 @@ public class Food {
 	
 	public int getYPos() {
 		return this.yPos;
+	}
+
+	public int getID() {
+		return this.id;
 	}
 
 }

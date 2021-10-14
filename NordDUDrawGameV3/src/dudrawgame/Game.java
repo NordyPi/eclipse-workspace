@@ -6,17 +6,16 @@ public class Game implements Runnable {
 	private boolean running;
 	private Thread thread;
 	Player p = new Player();
-	private int xSize;
-	private int ySize;
+	int playerX;
+	int playerY;
+	
+	private static int xSize = 1024;
+	private static int ySize = 1024;
+	
 	private Food[] foodList = new Food[100];{
 	for (int i = 0; i < foodList.length; i ++) {
 		foodList[i] = new Food(i);
 	}}
-	
-	public Game() {
-		xSize = 1024;
-		ySize = 1024;
-	}
 	
 	public synchronized void start() {
 		running = true;
@@ -34,23 +33,38 @@ public class Game implements Runnable {
 	}	
 
 	public void configureCanvas() {
-		DUDraw.setCanvasSize(this.xSize, this.ySize);
-		DUDraw.setXscale(0, this.xSize);
-		DUDraw.setYscale(0, this.ySize);
+		DUDraw.setCanvasSize(xSize, ySize);
+		DUDraw.setXscale(0, xSize);
+		DUDraw.setYscale(0, ySize);
 		DUDraw.enableDoubleBuffering();
 	}
 	
 	public void update() {
 		p.move();
+		playerX = p.getCoords()[0];
+		playerY = p.getCoords()[1];
+		
 		DUDraw.setPenColor(DUDraw.BLACK);
 		DUDraw.filledSquare(p.getCoords()[0], p.getCoords()[1], p.getSize());
 		
-		//TODO: Make loop to draw all food
+		eatFood();
+		
 		for (int i = 0; i < foodList.length; i ++) {
 			DUDraw.setPenColor(foodList[i].getColor());
 			DUDraw.filledCircle(foodList[i].getXPos(), foodList[i].getYPos(), 2);
 		}
 		
+	}
+	
+	public void eatFood() {
+		for (int i = 0; i < foodList.length; i ++) {
+			Food f = foodList[i];
+			if ((f.getXPos() > playerX - p.getSize()) && (f.getXPos() < playerX + 
+					p.getSize()) && (f.getYPos() > playerY - p.getSize()) && (f.getYPos() < playerY + p.getSize())) {
+				p.increaseSize();
+				foodList[i] = new Food(f.getID());
+			}
+		}
 	}
 	
 	@Override
@@ -76,17 +90,14 @@ public class Game implements Runnable {
 	public static void main(String[] args) {
 		Game game = new Game();
 		
-		//TODO: Make lots of food with a loop
-		
 		game.configureCanvas();
 		game.start();
 	}
 	
-	public int getXSize() {
-		return this.xSize;
-	}
-	
-	public int getYSize() {
-		return this.ySize;
+	public static int getXSize() {
+		return xSize;
+	}	
+	public static int getYSize() {
+		return ySize;
 	}
 }

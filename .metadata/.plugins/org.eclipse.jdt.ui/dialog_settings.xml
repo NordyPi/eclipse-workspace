@@ -59,14 +59,19 @@
 	<section name="FatJarPackageWizard">
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\Users\lokli\eclipse-workspace"/>
-		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
-		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="TicTacToeDriver - NordLab05"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="NordLab05\NordTicTacToe.jar"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="2"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Game (1) - NordDUDrawGameV3"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\lokli\eclipse-workspace\Project Exports\DUDrawGameV3.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\lokli\eclipse-workspace\Project Exports\DUDrawGameV3.jar"/>
 			<item value="NordLab05/NordTicTacToe.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\Users\lokli\eclipse-workspace.xml"/>
 			<item value=".xml"/>
 		</list>
+	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item key="GenerateJavadoc" value="false"/>
 	</section>
 </section>
