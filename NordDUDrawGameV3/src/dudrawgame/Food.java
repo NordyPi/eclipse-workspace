@@ -27,13 +27,27 @@ public class Food {
 	private int yPos;
 	private int id;
 	private Color color;
+	private Player p;
 	
-	public Food(int id) {
+	public Food(int id, Player p) {
+		this.p = p;
 		this.id = id;
-		
+		boolean notInsidePlayer = false;
 		Random ran = new Random();
-		this.yPos = ran.nextInt(Game.getXSize());
-		this.xPos = ran.nextInt(Game.getYSize());
+		
+		while(!notInsidePlayer) {
+			int playerX = p.getCoords()[0];
+			int playerY = p.getCoords()[1];
+			this.yPos = ran.nextInt(Game.getXSize());
+			this.xPos = ran.nextInt(Game.getYSize());
+			
+			if ((getXPos() > playerX - p.getSize()) && (getXPos() < playerX + 
+					p.getSize()) && (getYPos() > playerY - p.getSize()) && (getYPos() < playerY + p.getSize())) {
+			} else {
+				notInsidePlayer = !notInsidePlayer;
+			}
+		}
+
 		this.color = COLOR_LIST[ran.nextInt(7)];
 	}
 	

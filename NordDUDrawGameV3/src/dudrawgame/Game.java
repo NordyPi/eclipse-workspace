@@ -14,7 +14,7 @@ public class Game implements Runnable {
 	
 	private Food[] foodList = new Food[100];{
 	for (int i = 0; i < foodList.length; i ++) {
-		foodList[i] = new Food(i);
+		foodList[i] = new Food(i, p);
 	}}
 	
 	public synchronized void start() {
@@ -53,7 +53,9 @@ public class Game implements Runnable {
 			DUDraw.setPenColor(foodList[i].getColor());
 			DUDraw.filledCircle(foodList[i].getXPos(), foodList[i].getYPos(), 2);
 		}
-		
+		DUDraw.setPenColor(DUDraw.BLACK);
+		DUDraw.text(40, ySize - 20, "Size: " + p.getSize());
+		DUDraw.text(40, ySize - 40, "Health: ");
 	}
 	
 	public void eatFood() {
@@ -62,7 +64,7 @@ public class Game implements Runnable {
 			if ((f.getXPos() > playerX - p.getSize()) && (f.getXPos() < playerX + 
 					p.getSize()) && (f.getYPos() > playerY - p.getSize()) && (f.getYPos() < playerY + p.getSize())) {
 				p.increaseSize();
-				foodList[i] = new Food(f.getID());
+				foodList[i] = new Food(f.getID(), p);
 			}
 		}
 	}
