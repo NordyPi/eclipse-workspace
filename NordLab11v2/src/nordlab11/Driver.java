@@ -9,13 +9,18 @@ public class Driver {
 
 	public static void main(String[] args) {
 		try {
-			Color[][] pixels = BMPIO.readBMPFile("Alcatraz.bmp");
+			Color[][] pixels = BMPIO.readBMPFile("Alcatraz.bmp");	
 			int width = pixels.length;
 			int length = pixels[0].length;
+			System.out.println(width);
+			System.out.println(length);
+			
+			DUDraw.setXscale(0, width);
+			DUDraw.setYscale(0, length);
 			
 			for (int r = 0; r < width; r++) {
 				for (int c = 0; c < length; c++) {
-					
+					DUDraw.setPenColor(pixels[r][c]);
 					DUDraw.filledRectangle(c, r, 1, 1);
 				}
 			}

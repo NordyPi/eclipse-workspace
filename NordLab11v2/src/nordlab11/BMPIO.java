@@ -11,15 +11,21 @@ public class BMPIO {
 		RandomAccessFile raf = new RandomAccessFile(filename, "rw");
 		Color pixels[][] = null;
 		if (raf.readByte() == 66) {
+			System.out.println("check 1");
 			if (raf.readByte() == 77) {
+				System.out.println("check 2");
 				raf.seek(10);
 				if (Integer.reverseBytes(raf.readInt()) == 54) {
+					System.out.println("check 3");
 					if (Integer.reverseBytes(raf.readInt()) == 40) {
+						System.out.println("check 4");
 						int width = Integer.reverseBytes(raf.readInt());
 						if (width % 4 == 0) {
+							System.out.println("check 5");
 							int height = Integer.reverseBytes(raf.readInt());
 							raf.seek(28);
-							if (Integer.reverseBytes(raf.readShort()) == 24) {
+							if (Short.reverseBytes(raf.readShort()) == 24) {
+								System.out.println("check 6");
 								raf.seek(54);
 								pixels = new Color[height][width];
 								for (int r = 0; r < height; r++) {
