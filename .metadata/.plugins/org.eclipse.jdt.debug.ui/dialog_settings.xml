@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="74"/>
-	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="604"/>
-	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="82"/>
-	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
 	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
 		<item key="ShowStatusLine" value="true"/>
-<<<<<<< Updated upstream
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV2/C:\/Users\/lokli\/eclipse-workspace\/dudraw.jar&amp;lt;edu.du.dudraw(DUDraw.class[DUDraw&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordLab05/src&amp;lt;nordlab05{TicTacToeDriver.java[TicTacToeDriver&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV3/C:\/Users\/lokli\/eclipse-workspace\/dudraw \(1).jar&amp;lt;edu.du.dudraw(DUDraw.class[DUDraw&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV3/src&amp;lt;dudrawgame{Game.java[Game&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
-=======
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV2/C:\/Users\/lokli\/eclipse-workspace\/dudraw.jar&amp;lt;edu.du.dudraw(DUDraw.class[DUDraw&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV3/C:\/Users\/lokli\/eclipse-workspace\/dudraw \(1).jar&amp;lt;edu.du.dudraw(DUDraw.class[DUDraw&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordLab05/src&amp;lt;nordlab05{TicTacToeDriver.java[TicTacToeDriver&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordLab08/src&amp;lt;nordlab08{Fruit.java[Apple&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
->>>>>>> Stashed changes
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=NordDUDrawGameV3/src&amp;lt;dudrawgame{Game.java[Game&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
 		<section name="DialogBoundsSettings">
 			<item key="DIALOG_HEIGHT" value="500"/>
 			<item key="DIALOG_WIDTH" value="600"/>
-			<item key="DIALOG_X_ORIGIN" value="668"/>
-			<item key="DIALOG_Y_ORIGIN" value="215"/>
+			<item key="DIALOG_X_ORIGIN" value="100"/>
+			<item key="DIALOG_Y_ORIGIN" value="-13"/>
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		</section>
 	</section>
