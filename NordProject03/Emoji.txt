@@ -1,0 +1,14 @@
+3
+4
+smile
+surprise
+smile
+clock 4
+clock 8
+smile
+clock 3
+clock 12
+smile
+surprise
+clock 10
+surprise
