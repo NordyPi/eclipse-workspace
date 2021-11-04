@@ -14,4 +14,5 @@
     <fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="edu.du.dudraw.DUDraw"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
