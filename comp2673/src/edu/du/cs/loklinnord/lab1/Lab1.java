@@ -1,4 +1,4 @@
-package edu.du.cs.yourloginhere.lab1;
+package edu.du.cs.loklinnord.lab1;
 
 public class Lab1 {
 
@@ -51,6 +51,6 @@ public class Lab1 {
 	true
 	2000
 	MyPlaylist [All Four One (300) by Ben Grimm, All Four One (300) by Reed Richards, All Four One (300) by Johnny Storm, All Four One (300) by Susan Storm, I'm On Fire (200) by Johnny Storm, I'm On Fire (400) by Johnny Storm, Invisible (200) by Susan Storm]
-	*/s
+	*/
 
 }
