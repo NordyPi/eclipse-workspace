@@ -1,6 +1,6 @@
 package edu.du.cs.loklinnord.lab1;
 
-public class Artist {
+public class Artist implements Comparable <Artist> {
 	// class variables
 	private String lastName;
 	private String firstName;
@@ -16,7 +16,6 @@ public class Artist {
 	// checks values of itself against other object to see if equal
 	public boolean equals(Artist o) {
 		if(this.firstName.equals(o.firstName) && this.lastName.equals(o.lastName)) {
-			System.out.println("artist equals");
 			return true;
 		} else {
 			return false;
