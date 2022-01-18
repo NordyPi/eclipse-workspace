@@ -35,10 +35,10 @@ public class Song implements Comparable <Song> {
 		// if titles are the same and returns 0, compare running time through math
 		if (result == 0) {
 			result = (this.runningTime - s.runningTime);
-		}
-		// if running times are the same and result in 0, compare artist last
-		if (result == 0) {
-			result = this.artist.compareTo(s.artist);
+			// if running times are the same and result in 0, compare artist last
+			if (result == 0) {
+				result = this.artist.compareTo(s.artist);
+			}
 		}
 		return result;
 	}
