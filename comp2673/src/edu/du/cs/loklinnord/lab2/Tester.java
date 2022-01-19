@@ -8,13 +8,20 @@ public class Tester {
 		
 		l.add("hello");
 		l.add("world");
-		
-		l.remove(1);
+		l.add("this");
+		l.add("deleted");
+		System.out.println(l);
+		l.remove(3);
 		
 		System.out.println(l);
-		
-		
-		
+		l.set(1, "cjhanged");
+		System.out.println(l);
+		l.add("added");
+		System.out.println(l.contains("this"));
+		System.out.println(l.indexOf("this"));
+		l.remove("this");
+		System.out.println(l);
+		System.out.println(l.size());
 
 	}
 

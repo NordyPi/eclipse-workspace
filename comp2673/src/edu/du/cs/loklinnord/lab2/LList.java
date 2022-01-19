@@ -1,4 +1,5 @@
 package edu.du.cs.loklinnord.lab2;
+// compared ideas with Luke for methods
 
 public class LList<T> implements ListIf<T> {
 
@@ -91,36 +92,78 @@ public class LList<T> implements ListIf<T> {
 
 	@Override
 	public void set(int index, T o) {
-		// TODO Auto-generated method stub
+		Node n = first;
 		
+		// Special case for changing the first item
+		if (index == 0) {
+			first.element = o;
+
+		} else { // works for middle and end cases
+			//Find our index
+			for (int i = 0; i < index; i++) {
+				n = n.next;
+			}
+			n.element = o;
+		}
 	}
 
 	@Override
 	public boolean remove(T o) {
-		// TODO Auto-generated method stub
-		return false;
+		//first checks to see if item exists
+		int i = indexOf(o);
+		if (i >= 0) {
+			//then calls remove on the index
+			remove(i);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
 	public boolean contains(T o) {
-		// TODO Auto-generated method stub
+		Node n = first;
+		//loops through and tries to find index
+		for (int i = 0; i < size; i++) {
+			if (n.element.equals(o)) {
+				return true;
+			}
+			n = n.next;
+		}
 		return false;
 	}
 
 	@Override
 	public int indexOf(T o) {
-		// TODO Auto-generated method stub
-		return 0;
+		Node n = first;
+		//loops through and tries to find index using same code as compare
+		for (int i = 0; i < size; i++) {
+			if (n.element.equals(o)) {
+				return i;
+			}
+			n = n.next;
+		}
+		//if not found return -1
+		return -1;
 	}
 	
 	public String toString() {
-		return "yey";
+		//makes blank string, starts at beginning
+		Node n = first;
+		String output = "";
+		//loops through and builds list
+		for (int i = 0; i < size-1; i++) {
+			output = output + n.element + ", ";
+			n = n.next;
+		}
+		//if last object, don't add , space
+		output = output + n.element;
+		return output;
 	}
 
 }
