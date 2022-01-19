@@ -6,6 +6,7 @@ public class Tester {
 		
 		ListIf<String> l = new LList<String>();
 		
+		/*
 		l.add("hello");
 		l.add("world");
 		l.add("this");
@@ -22,7 +23,20 @@ public class Tester {
 		l.remove("this");
 		System.out.println(l);
 		System.out.println(l.size());
-
+		*/
+		ListIf<String> dl = new DLList<String>();
+		dl.add("0st");
+		System.out.println(dl);
+		dl.add("1st");
+		System.out.println(dl);
+		dl.add("2nd");
+		dl.add(2,"between 1 and 2");
+		System.out.println(dl);
+		System.out.println(((DLList<String>)l).reverseToString());
+		dl.remove(3);
+		System.out.println(dl);
+		dl.remove(2);
+		System.out.println(dl);
 	}
 
 }
