@@ -38,6 +38,11 @@ public class Tester {
 		System.out.println(dl);
 		dl.remove(2);
 		System.out.println(dl);
+		dl.remove(1);
+		System.out.println(dl);
+		dl.remove(0);
+		System.out.println(dl);
+
 	}
 
 }

@@ -29,34 +29,30 @@ public class DLList<T> implements ListIf<T>{
 			size = 0;
 		}
 
-		// Added to the end, BUT different since we now know the last element and don't need to walk through with size
+		// simply allows us to call without specifying index, implying add to the end. calls add(index, object)
 		public void add(T o) {
+			add(size, o);
+		}
+		
+		// Added to the middle (or start) or end
+		public void add(int index, T o) {
 			Node nn = new Node(o);
+			// if the list is empty, object is added and it is both first and last node
 			if (size == 0) {
 				first = nn;
 				last = nn;
-			} else {
-			    nn.prev = last;
+			} else if (index == size) {
+				// Added to the end, BUT different since we now know the last element and don't need to walk through with size
+				nn.prev = last;
 			    last.next = nn;
-			    last = nn;
-			}
-			size ++;
-		}
-		// TODO: Add should contain all four cases to avoid errors in particular settings
-		// Added to the middle (or start)
-		public void add(int index, T o) {
-
-			Node nn = new Node(o);
-
-			// Special case for adding to start
-			if (index == 0) {
+			    last = nn;  
+			} else if (index == 0) {
+				// Special case for adding to start
 				nn.next = first;
 				first.prev = nn;
 				nn.prev = null;
 				first = nn;
-
 			} else { // works for middle and end cases
-
 				// Find the node before index
 				Node n = first;
 				for (int i = 0; i < index - 1; i++) {
@@ -85,20 +81,23 @@ public class DLList<T> implements ListIf<T>{
 		// TODO: If list has only one item, code in that case in
 		public T remove(int index) {
 			T result = null;
-			
+			// if the array only has one element, correctly set nodes
+			if (size == 0) {
+				first = null;
+				last = null;
+			} else 
 			// Special case for removal from beginning
 			if (index == 0) {
 				result = first.element;
 				first = first.next;
 				first.prev = null;
-			}
+			} else 
 			// Special case for removal at the end
 			if (index == size-1) {
 				result = last.element;
 				last = last.prev;
 				last.next = null;
 			} else { // works for middle and end cases
-
 				// Find the node before index
 				Node n = first;
 				for (int i = 0; i < index - 1; i++) {
