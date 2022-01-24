@@ -42,7 +42,7 @@ public class DLList<T> implements ListIf<T>{
 			}
 			size ++;
 		}
-
+		// TODO: Add should contain all four cases to avoid errors in particular settings
 		// Added to the middle (or start)
 		public void add(int index, T o) {
 
@@ -82,6 +82,7 @@ public class DLList<T> implements ListIf<T>{
 		}
 
 		// Remove
+		// TODO: If list has only one item, code in that case in
 		public T remove(int index) {
 			T result = null;
 			
@@ -192,10 +193,12 @@ public class DLList<T> implements ListIf<T>{
 		public String reverseToString() {
 			Node n = last;
 			String output = "";
+			// This will go back from last until first, which points to null, and then stop
 			while (n != null) {
 				output = output + n.element;
 				n = n.prev;
 			}
+			// Not sure how to configure while so that last element doesn't add extra ", "
 			return output;
 		}
 }

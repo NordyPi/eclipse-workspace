@@ -30,10 +30,11 @@ public class Tester {
 		dl.add("1st");
 		System.out.println(dl);
 		dl.add("2nd");
+		System.out.println(dl);
 		dl.add(2,"between 1 and 2");
 		System.out.println(dl);
-		System.out.println(((DLList<String>)l).reverseToString());
-		dl.remove(3);
+		//System.out.println(((DLList<String>)l).reverseToString());
+		dl.remove(1);
 		System.out.println(dl);
 		dl.remove(2);
 		System.out.println(dl);
