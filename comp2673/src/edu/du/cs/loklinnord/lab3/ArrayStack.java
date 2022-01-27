@@ -43,26 +43,32 @@ public class ArrayStack<T> implements StackIf<T> {
 	@Override
 	public T pop() {
 		// sets top object to null, decreases top index, and returns the object
-		T popped = stack[top];
-		stack[top] = null;
-		if (top != 0) {
-			top --;
+		if (isEmpty()) {
+			throw new RuntimeException("Attempted to pop from an empty stack");
+		} else {
+			T popped = stack[top];
+			stack[top] = null;
+			if (top != 0) {
+				top --;
+			}
+			return popped;
 		}
-		return popped;
-		// TODO: work out if popping empty list exception
 	}
 
 	@Override
 	public void push(T o) {
 		// increases top index and sets the object
 		// if stack is empty, don't increase the top index
-		if (isEmpty()) {
-			stack[top] = o;
+		if (isFull()) {
+			throw new RuntimeException("Attempted to add to a full stack");
 		} else {
-			top ++;
-			stack[top] = o;
+			if (isEmpty()) {
+				stack[top] = o;
+			} else {
+				top ++;
+				stack[top] = o;
+			}
 		}
-		// TODO: Work out for overflow exception
 	}
 	
 	public String toString() {

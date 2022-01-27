@@ -82,7 +82,7 @@ public class DLList<T> implements ListIf<T>{
 		public T remove(int index) {
 			T result = null;
 			// if the array only has one element, correctly set nodes
-			if (size == 0) {
+			if (size == 1) {
 				first = null;
 				last = null;
 			} else 
@@ -176,17 +176,21 @@ public class DLList<T> implements ListIf<T>{
 		}
 		
 		public String toString() {
-			//makes blank string, starts at beginning
-			Node n = first;
-			String output = "";
-			//loops through and builds list
-			for (int i = 0; i < size-1; i++) {
-				output = output + n.element + ", ";
-				n = n.next;
+			if (size() != 0) {
+				//makes blank string, starts at beginning
+				Node n = first;
+				String output = "";
+				//loops through and builds list
+				for (int i = 0; i < size-1; i++) {
+					output = output + n.element + ", ";
+					n = n.next;
+				}
+				//if last object, don't add , space
+				output = output + n.element;
+				return output;
+			} else {
+				return "empty";
 			}
-			//if last object, don't add , space
-			output = output + n.element;
-			return output;
 		}
 		
 		public String reverseToString() {

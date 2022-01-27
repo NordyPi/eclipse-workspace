@@ -3,8 +3,8 @@ package edu.du.cs.loklinnord.lab3;
 public class QueueTest {
 	  public static void main(String[] args) {
 
-	    QueueIf<String> queue1 = new CircularArrayQueue<String>(5);
-	    //QueueIf<String> queue1 = new LinkedListQueue<String>(5);
+	    //QueueIf<String> queue1 = new CircularArrayQueue<String>(5);
+	    QueueIf<String> queue1 = new LinkedListQueue<String>(5);
 
 	    System.out.println(queue1);
 
@@ -35,8 +35,8 @@ public class QueueTest {
 	    System.out.println(queue1);
 
 
-	    QueueIf<Integer> queue2 = new CircularArrayQueue<Integer>(10);
-	    //QueueIf<Integer> queue2 = new LinkedListQueue<Integer>(10);
+	    //QueueIf<Integer> queue2 = new CircularArrayQueue<Integer>(10);
+	    QueueIf<Integer> queue2 = new LinkedListQueue<Integer>(10);
 
 	    for(int i=0; i<10; i++) {
 	      queue2.enqueue(i);
@@ -45,5 +45,6 @@ public class QueueTest {
 
 	    // Try to force too many things onto the queue
 	    queue2.enqueue(10);
+	    System.out.println(queue2);
 	  }
 }
