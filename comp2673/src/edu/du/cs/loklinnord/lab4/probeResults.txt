@@ -1,0 +1,20 @@
+[null, 1, 2, 3, null, 5, null, null, 8, null]
+true
+false
+false
+[null, 1, 2, 3, null, 5, 15, null, 8, null]
+[null, 1, 2, 3, null, 5, 15, 25, 8, null]
+[null, 1, 2, 3, null, 5, 15, 25, 8, 35]
+[null, 1, 2, 3, null, 5, 15, null, 8, 35]
+true
+false
+[null, 1, 2, 3, 12, 5, 15, null, 8, 35]
+[null, 1, 2, 3, 12, 5, 15, 22, 8, 35]
+[53, 1, 2, 3, 12, 5, 15, 22, 8, 35]
+false
+false
+false
+[53, 1, 2, 3, 12, 5, null, 22, 8, 35]
+[53, 1, 2, null, 12, 5, null, 22, 8, 35]
+false
+true
