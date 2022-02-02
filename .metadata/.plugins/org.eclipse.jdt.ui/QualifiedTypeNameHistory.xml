@@ -17,6 +17,7 @@
     <fullyQualifiedTypeName name="edu.du.dudraw.DrawListener"/>
     <fullyQualifiedTypeName name="java.awt.Canvas"/>
     <fullyQualifiedTypeName name="edu.du.dudraw.Draw"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
 </qualifiedTypeNameHistroy>

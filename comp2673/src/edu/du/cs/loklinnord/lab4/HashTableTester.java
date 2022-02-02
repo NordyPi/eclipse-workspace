@@ -12,9 +12,6 @@ public class HashTableTester {
 		ht.put(new Foo(3));
 		ht.put(new Foo(5));
 		ht.put(new Foo(8));
-		Foo t1 = new Foo(8);
-		Foo t2 = new Foo(8);
-		t1.equals(t2)
 		System.out.println(ht);
 		
 		System.out.println(ht.contains(new Foo(5)));

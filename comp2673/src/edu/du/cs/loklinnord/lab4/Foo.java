@@ -1,6 +1,6 @@
 package edu.du.cs.loklinnord.lab4;
 
-public class Foo {
+public class Foo implements Comparable<Foo> {
 	// instance variables
 	private int num;
 	// default constructor
@@ -17,8 +17,9 @@ public class Foo {
 		return num + out;
 	}
 	// equals method. just compares int
-	public boolean equals(Foo o) {
-		if (this.num == o.num) {
+	public boolean equals(Object o) {
+		Foo foo = (Foo) o;
+		if (this.num == foo.num) {
 			return true;
 		} else {
 			return false;
