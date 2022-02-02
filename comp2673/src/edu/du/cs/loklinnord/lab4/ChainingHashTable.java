@@ -24,14 +24,17 @@ public class ChainingHashTable<T> implements HashTable<T> {
 
 	@Override
 	public boolean contains(Object element) {
-		outerList.get(element.hashCode() % size).toString();
 		return outerList.get(element.hashCode() % size).contains(element);
 	}
 
 	@Override
 	public boolean remove(Object element) {
-		outerList.get(element.hashCode() % size).remove(element);
-		return false;
+		if (contains(element)) {
+			outerList.get(element.hashCode() % size).remove(element);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public String toString() {

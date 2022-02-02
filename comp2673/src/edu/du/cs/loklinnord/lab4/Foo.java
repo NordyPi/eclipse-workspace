@@ -19,6 +19,9 @@ public class Foo implements Comparable<Foo> {
 	// equals method. just compares int
 	public boolean equals(Object o) {
 		Foo foo = (Foo) o;
+		if (foo == null) {
+			return false;
+		}
 		if (this.num == foo.num) {
 			return true;
 		} else {

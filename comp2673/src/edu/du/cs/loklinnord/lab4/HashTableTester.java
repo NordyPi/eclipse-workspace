@@ -4,9 +4,10 @@ public class HashTableTester {
 
 	public static void main(String[] args) {
 		
-		HashTable<Foo> ht = new ChainingHashTable<Foo>(10);
-		//HashTable<Foo> ht = new ProbingHashTable<Foo>(10);
+		//HashTable<Foo> ht = new ChainingHashTable<Foo>(10);
+		HashTable<Foo> ht = new ProbingHashTable<Foo>(10);
 	
+		System.out.println(ht);
 		ht.put(new Foo(1));
 		ht.put(new Foo(2));
 		ht.put(new Foo(3));
