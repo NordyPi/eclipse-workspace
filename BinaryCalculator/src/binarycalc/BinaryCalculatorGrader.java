@@ -7,15 +7,20 @@ import java.util.Random;
 public class BinaryCalculatorGrader
 {
     private static final boolean DO_ADD = true;
-    private static final boolean DO_SUB = false;
-    private static final boolean DO_MUL = false;
+    private static final boolean DO_SUB = true;
+    private static final boolean DO_MUL = true;
     private static final boolean DO_DIV = false;
-    private static final int NUM_ITERATIONS = 8;
-    private static final int MAX_BITS = 8;
+    private static final int NUM_ITERATIONS = 60;
+    private static final int MAX_BITS = 60;
     private static Random RAND = new Random(1);
 
     public static void main(String[] args) throws Exception
     {
+    BitField test = new BitField(8);
+    test.setAllTrue();
+    //System.out.println(BinaryCalculator.LSL(test));
+    System.out.println(BinaryCalculator.LSR(test));
+    
 	long n_tests = 0;
 	long n_correct = 0;
 	for(int i=0; i<NUM_ITERATIONS; i++){
