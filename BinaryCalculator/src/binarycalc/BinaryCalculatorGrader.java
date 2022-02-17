@@ -9,9 +9,9 @@ public class BinaryCalculatorGrader
     private static final boolean DO_ADD = true;
     private static final boolean DO_SUB = true;
     private static final boolean DO_MUL = true;
-    private static final boolean DO_DIV = false;
-    private static final int NUM_ITERATIONS = 60;
-    private static final int MAX_BITS = 60;
+    private static final boolean DO_DIV = true;
+    private static final int NUM_ITERATIONS = 4;
+    private static final int MAX_BITS = 4;
     private static Random RAND = new Random(1);
 
     public static void main(String[] args) throws Exception
