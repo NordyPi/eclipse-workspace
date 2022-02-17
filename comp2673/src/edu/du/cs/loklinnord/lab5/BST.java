@@ -115,25 +115,39 @@ public class BST<T extends Comparable<T>> {
 			}
 		}
 		// if node with two children
-		if (current.left != null && current.right != null) {
+		else if (current.left != null && current.right != null) {
 			TNode parentt = current.parent;
 			TNode leftSide = current.left;
 			TNode rightSide = current.right;
 			TNode successor = rightSide;
-			
+			//finds the successor node
 			while (successor.left != null) {
 				successor = successor.left;
 			}
-				
+			//replaces successor with its right child tree (only if it has children)
+			TNode successorChild = successor.right;
+			if (successorChild != null) {
+				successorChild.parent = successor.parent;
+				rightSide.left = successorChild;
+				successor.right = rightSide;
+			}
+			successor.left = leftSide;
+			//replaces the deleted node with successor
+			if (fromRight) {
+				parentt.right = successor;
+			} else { 
+				parentt.left = successor;
+			}
+			
 		}
 		// if node with one child (either child node is null)
-		if (current.left == null || current.right == null) {
+		else if (current.left == null || current.right == null) {
 			if (current.right == null) {
 				current.parent.left = current.left;
-				//current.left.parent = current.parent;
+				current.left.parent = current.parent;
 			} else {
 				current.parent.right = current.right;
-				//current.right.parent = current.parent;
+				current.right.parent = current.parent;
 			}
 		}
 	}

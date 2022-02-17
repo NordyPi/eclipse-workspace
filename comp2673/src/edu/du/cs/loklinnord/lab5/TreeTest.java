@@ -27,7 +27,7 @@ public class TreeTest {
 		
 		// Delete interior node with two children
 		tree = loadTree();
-		System.out.println("\n\s:");
+		System.out.println("\n\nTree:");
 		tree.displayTree();
 		tree.delete(25);
 		System.out.println("\nTree after deleting 25:");
