@@ -1,0 +1,20 @@
+<start>
+I like <topping> on my <food>
+
+<topping>
+olives
+peppers
+<meat> and <cheese>
+
+<food>
+pizza
+salad
+
+<meat>
+turkey
+chicken
+
+<cheese>
+cheddar
+provolone
+

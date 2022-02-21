@@ -104,46 +104,117 @@ public class BinaryCalculator {
 		return temp;
 	}
 
-	public static BitField[] divide(BitField a, BitField b) {
-		if (null == a || null == b || a.size() != b.size()) {
-			throw new IllegalArgumentException(
-					"BinaryCalculator.add(a,b): a and b cannot be null and must be the same length.");
+    public static BitField[] divide(BitField a, BitField b) {
+        if (null == a || null == b || a.size() != b.size()) {
+            throw new IllegalArgumentException(
+                    "BinaryCalculator.add(a,b): a and b cannot be null and must be the same length.");
+        }
+
+        if (b.equals(new BitField(a.size()))) {
+            return null;
+        }
+
+        // Return both the quotient and the remainder
+        BitField[] out = new BitField[2];
+        out[0] = new BitField(a.size()); // quotient
+        out[1] = new BitField(a.size()); // remainder
+
+        BitField quotient = new BitField(a.size() * 2);
+        BitField remainder = new BitField(a.size() * 2);
+        BitField divisor = new BitField(a.size() * 2);
+
+        BitField aCopy = null;
+        BitField bCopy = null;
+
+        boolean remainderFlag = false;
+        boolean quotientFlag = false;
+
+        // the next sequence of if statements takes the absolute value of the bit
+        // sequences and marks them as flipped if done so
+        if (a.getMSB()) {
+            aCopy = flipSign(a);
+            remainderFlag = true;
+        } else {
+            aCopy = a.copy();
+        }
+        if (b.getMSB()) {
+            bCopy = flipSign(b);
+        } else {
+            bCopy = b.copy();
+        }
+
+        // sets the lower bits of the size doubled divisor and remainder
+        for (int i = 0; i < b.size(); i++) {
+            divisor.set(i, bCopy.get(i));
+        }
+        for (int i = 0; i < b.size(); i++) {
+            remainder.set(i, aCopy.get(i));
+        }
+
+        if (a.getMSB() != b.getMSB()) {
+            quotientFlag = true;
+        }
+
+        for (int i = 0; i < aCopy.size(); i++) {
+            divisor = LSL(divisor);
+        }
+
+        for (int i = 0; i <= a.size(); i++) {
+            // subtract the divisor from the remainder register and place the result in the
+            // remainder register
+            remainder = subtract(remainder, divisor);
+            // is the remainder > or < 0
+
+            // >= shift the quotient register to the left, setting the new rightmost bit to
+            // 1
+            if (!remainder.getMSB()) {
+                quotient = LSL(quotient);
+                quotient.set(0, true);
+            } else {
+                // <0 restore the register to the original value by adding the divisor register
+                // to the remainder register and placing the sum in the remainder register. Also
+                // shift the quotient register to the left, setting the new LSB to 0
+                remainder = add(remainder, divisor);
+                quotient = LSL(quotient);
+                quotient.set(0, false);
+            }
+
+            // shift the divisor register right 1 bit
+            divisor = LSR(divisor);
+        }
+
+        // repeat until at the end of the bit sequence
+
+        // flips the sign if the marker was turned on at the beginning of the method
+        if (remainderFlag) {
+            remainder = flipSign(remainder);
+        }
+        if (quotientFlag) {
+            quotient = flipSign(quotient);
+        }
+
+        out[0] = halfBits(quotient);
+        out[1] = halfBits(remainder);
+
+        return out;
+    }
+    public static BitField halfBits(BitField b) {
+
+		BitField out = new BitField(b.size() / 2);
+
+		for (int i = 0; i < b.size() / 2; i++) {
+
+			out.set(i, b.get(i));
 		}
-		// set up our remainder by placing in the right side of double sized field
-		BitField remainder = new BitField(a.size()*2);
-		for (int i = 0; i < a.size(); i ++) {
-			remainder.set(i, a.get(i));
-		}
-		// sets up our divisor by placing in left side of double sized field
-		BitField divisor = new BitField(b.size()*2);
-		for (int i = 0; i < b.size(); i ++) {
-			divisor.set(i + b.size(), b.get(i));
-		}
-		BitField quotient = new BitField(a.size());
-		// runs through algorithm from book. somehow worked on example case, 7 / 2 but i dont think subtracting is working
-		for(int i = 0; i < a.size() + 1; i++) {
-			remainder = subtract(remainder, divisor);
-			System.out.println(remainder);
-			if(remainder.get(remainder.size() - 1) == true) {
-				remainder = add(remainder, divisor);
-				quotient = LSL(quotient);
-				quotient.set(0, false);
-			} else {
-				quotient = LSL(quotient);
-				quotient.set(0, true);
-			}
-			divisor = LSR(divisor);
-		}
-		// set remainder back to original size for grading
-		BitField newRemainder = new BitField(a.size());
-		for (int i = 0; i < a.size(); i ++) {
-			newRemainder.set(i, remainder.get(i));
-		}
-		
-		// Return both the quotient and the remainder
-		BitField[] out = new BitField[2];
-		out[0] = quotient; // quotient
-		out[1] = newRemainder; // remainder
+
 		return out;
-	}
+    }
+	 // written in class
+	 	public static BitField flipSign(BitField a) {
+	 		BitField temp = twosComplement(a);
+	 		BitField one = new BitField(a.size());
+	 		one.set(0, true);
+	
+	 		return add(temp, one);
+	 	}
 }

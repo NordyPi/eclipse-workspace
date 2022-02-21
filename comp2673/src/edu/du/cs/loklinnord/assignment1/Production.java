@@ -4,24 +4,30 @@ import java.util.*;
 
 public class Production {
 
-	private Queue<Symbol> queue; 
+	private Stack<Symbol> stack;
 
 	Production(String input) {
-		StringTokenizer t = new StringTokenizer(input); //parsing the input into individual lines - into one big token array
-		String newString = "";
-		
-		while (t.hasMoreTokens()) {
-			String parser = t.nextToken(); 
-			if(parser.contains("<")) { //if the next token contains an '<', then add it to the next line, if not, create a new string with the parser attached
-				queue.add(new Terminal(newString));
-				queue.add(new NonTerminal(parser));
-				newString = "";
-			}else {
-				newString += parser + " ";
+		//System.out.println(input);
+		// Makes a new stack of symbols, splits the string, and adds it to the stack
+		stack = new Stack<Symbol>();
+		String[] split = input.split("\\s+");
+		for (String s: split) {
+			if (s.contains("<")) {
+				stack.add(new NonTerminal(s));
+			} else {
+				stack.add(new Terminal(s));
 			}
-
 		}
-
+		//System.out.println("production: " + stack.toString());
+		//System.out.println();
 	}
 	
+	public String toString() {
+		return stack.toString();
+	}
+	
+	public Symbol pop() {
+		return stack.pop();
+	}
+
 }

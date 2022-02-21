@@ -2,23 +2,25 @@ package edu.du.cs.loklinnord.assignment1;
 
 import java.util.*;
 
-public class Rule { 
+public class Rule {
 	private List<Production> products;
-	private NonTerminal key; 
-	public Rule( NonTerminal k, List<Production> p  ) {//parses the new productions in
+	private NonTerminal key;
+	// makes a new rule with key NonTerminal and a list of productions
+	public Rule(NonTerminal k, List<Production> p) {
 		this.key = k;
 		this.products = new LinkedList<Production>();
 		this.products = p;
-	
+
 	}
 	
-	public int hashCode() { //returns a hash code for the table based off of the key value, which in this case is the nonTerminal
-		return key.hashCode();
-	}
-	public boolean equals(Object o){ //equals method cause I felt like it
-		Rule k = (Rule) o;
-		return key.equals(k.key) && products.equals(k.products);
+	public String toString() {
+		return products.toString();
 	}
 	
-	
+	// this will return a randomProduciton from the list based on its size
+	public Production returnRandomProduction() {
+		Random rand = new Random();
+		return products.get(rand.nextInt(products.size()));
+	}
+
 }
