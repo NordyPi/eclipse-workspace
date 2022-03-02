@@ -96,6 +96,9 @@ public class AVL<T extends Comparable<T>> {
 	}
 	
 	public void insertRebalance(TNode n) {
+		//System.out.println("before rebalancing of node: " + n.nodeValue);
+		//displayTree();
+		//System.out.println();
 		// checks to see if tree is out of balance
 		if (n.bf == -1 || n.bf == 1) {
 			// tree might not have parent so do nothing on error
@@ -111,11 +114,20 @@ public class AVL<T extends Comparable<T>> {
 				
 			}
 		} else if (n.bf == 2) {
+			// left left case
 			if(n.left.bf == 1) {
+				rightRotation(n);
+			} else {
+				// left right case
+				leftRotation(n.left);
 				rightRotation(n);
 			}
 		} else if (n.bf == -2) {
+			// right right case
 			if(n.right.bf == -1) {
+				leftRotation(n);
+			} else {
+				rightRotation(n.right);
 				leftRotation(n);
 			}
 		}
@@ -125,12 +137,15 @@ public class AVL<T extends Comparable<T>> {
 		TNode oldParent = n.parent;
 		n.parent = n.right;
 		n.right = n.parent.left;
+		if (n.parent.left != null) {
+			n.parent.left.parent = n;
+		}
 		n.parent.left = n;
+		n.parent.parent = oldParent;
 		// if n was the root, then we need to change the root. if not, configure the N's new parent
 		if (oldParent == null) {
 			root = n.parent;
 		} else {
-			n.parent.parent = oldParent;
 			// figure out if B should be placed to right or left of oldParent
 			if (oldParent.nodeValue.compareTo(n.parent.nodeValue) > 0) {
 				oldParent.left = n.parent;
@@ -147,12 +162,15 @@ public class AVL<T extends Comparable<T>> {
 		TNode oldParent = n.parent;
 		n.parent = n.left;
 		n.left = n.parent.right;
+		if (n.parent.right != null) {
+			n.parent.right.parent = n;
+		}
 		n.parent.right = n;
+		n.parent.parent = oldParent;
 		// if n was the root, then we need to change the root. if not, configure the N's new parent
 		if (oldParent == null) {
 			root = n.parent;
 		} else {
-			n.parent.parent = oldParent;
 			// figure out if B should be placed to right or left of oldParent
 			if (oldParent.nodeValue.compareTo(n.parent.nodeValue) > 0) {
 				oldParent.left = n.parent;
@@ -301,7 +319,9 @@ public class AVL<T extends Comparable<T>> {
 					System.out.print("   ");
 					currentTab++;
 				}
-				System.out.print(current.nodeValue + " <" + current.bf + ">");
+				
+				System.out.print(current.nodeValue);
+				//System.out.print(current.nodeValue + "<" + current.bf + ">");
 				
 				// if a left child exists, insert it in the queue
 				if (current.left != null) {
