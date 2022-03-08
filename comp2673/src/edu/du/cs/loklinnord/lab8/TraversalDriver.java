@@ -2,9 +2,6 @@ package edu.du.cs.loklinnord.lab8;
 
 import java.util.List;
 import java.util.ArrayList;
-import edu.du.cs.yourname.graph.*;
-import edu.du.cs.yourname.heap.*;
-import edu.du.cs.yourname.stackQ.*;
 
 public class TraversalDriver {
 	

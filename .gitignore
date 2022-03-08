@@ -24,3 +24,10 @@
 .metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs
 .metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
 .metadata/.log
+.metadata/.log
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs
+.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+.metadata/version.ini
