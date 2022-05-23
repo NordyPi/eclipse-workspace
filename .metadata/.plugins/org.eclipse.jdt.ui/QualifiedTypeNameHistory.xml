@@ -22,8 +22,9 @@
     <fullyQualifiedTypeName name="edu.du.dudraw.DUDraw"/>
     <fullyQualifiedTypeName name="edu.du.dudraw.DrawListener"/>
     <fullyQualifiedTypeName name="edu.du.dudraw.Draw"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.net.Socket"/>
     <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
     <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+    <fullyQualifiedTypeName name="java.net.Socket"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.net.ServerSocket"/>
 </qualifiedTypeNameHistroy>
