@@ -19,4 +19,12 @@ public class Planet {
 		panel.setPenColor(DUDraw.BOOK_BLUE);
 		panel.filledCircle(xPos, yPos, radius);
 	}
+	
+	public boolean between(int[] coords) {
+		if ((xPos > coords[0] && xPos < coords[1]) && (yPos > coords[2] && yPos < coords[3])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

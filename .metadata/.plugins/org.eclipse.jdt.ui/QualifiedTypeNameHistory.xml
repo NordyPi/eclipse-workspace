@@ -12,15 +12,18 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
     <fullyQualifiedTypeName name="nordlab17.PriorityQueue"/>
-    <fullyQualifiedTypeName name="edu.du.dudraw.DUDraw"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
-    <fullyQualifiedTypeName name="edu.du.dudraw.DrawListener"/>
     <fullyQualifiedTypeName name="java.awt.Canvas"/>
-    <fullyQualifiedTypeName name="edu.du.dudraw.Draw"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="edu.du.dudraw.DUDraw"/>
+    <fullyQualifiedTypeName name="edu.du.dudraw.DrawListener"/>
+    <fullyQualifiedTypeName name="edu.du.dudraw.Draw"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.net.Socket"/>
+    <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+    <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 </qualifiedTypeNameHistroy>
