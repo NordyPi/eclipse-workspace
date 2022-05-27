@@ -20,8 +20,8 @@ public class Node {
 			this.s = new Socket("localhost", p);
 			ois = new ObjectInputStream(s.getInputStream());
 			oos = new ObjectOutputStream(s.getOutputStream());
-			start = ois.readInt();
-			stop = ois.readInt();
+			//start = ois.readInt();
+			//stop = ois.readInt();
 			System.out.println("Node: " + nodeNum + " on port: " + p + ". From " + start + " to " + stop);
 			findPrimes();
 			
@@ -36,7 +36,7 @@ public class Node {
 	}
 
 	public static void main(String[] args) {
-		int c = 4;
+		int c = 1;
 		ArrayList<Node> nodes = new ArrayList<Node>();
 		for (int i = 0; i < c; i++) {
 			nodes.add(new Node(i, 7000+i));

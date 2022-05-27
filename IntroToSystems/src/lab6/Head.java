@@ -21,8 +21,8 @@ public class Head {
 			s = ss.accept();
 			oos = new ObjectOutputStream(s.getOutputStream());
 			ois = new ObjectInputStream(s.getInputStream());
-			oos.writeInt(start);
-			oos.writeInt(stop);
+			oos.writeObject(start);
+			oos.writeObject(stop);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,7 +31,7 @@ public class Head {
 	}
 
 	public static void main(String[] args) {
-		int c = 4;
+		int c = 1;
 		int min = 1000;
 		int max = 1000000;
 		int range = (max-min) / c;
