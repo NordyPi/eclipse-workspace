@@ -20,8 +20,9 @@ public class Node {
 			this.s = new Socket("localhost", p);
 			ois = new ObjectInputStream(s.getInputStream());
 			oos = new ObjectOutputStream(s.getOutputStream());
-			//start = ois.readInt();
-			//stop = ois.readInt();
+			start = (int)ois.readObject();
+			//stem.out.println("made it");
+			stop = (int)ois.readObject();
 			System.out.println("Node: " + nodeNum + " on port: " + p + ". From " + start + " to " + stop);
 			findPrimes();
 			
@@ -31,15 +32,18 @@ public class Node {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
 
 	public static void main(String[] args) {
-		int c = 1;
+		int c = 4;
 		ArrayList<Node> nodes = new ArrayList<Node>();
 		for (int i = 0; i < c; i++) {
-			nodes.add(new Node(i, 7000+i));
+			nodes.add(new Node(i, 7000));
 		}
 	}
 	
@@ -58,11 +62,12 @@ public class Node {
 	
 	public int findPrimes() {
 		int count = 0;
-		for (int i = start; i <= stop; i++) {
-			count += isPrime(i);
+		for (int i = start; i < stop; i++) {
+			count = count + isPrime(i);
 		}
+		System.out.println(count);
 		try {
-			oos.writeInt(count);
+			oos.writeObject(new Integer(count));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -14,15 +14,15 @@ public class Head {
 	private int start;
 	private int stop;
 	
-	public Head(int n, int p, int start, int stop) {
+	public Head(int n, int p, int start, int stop, ServerSocket ss) {
 		try {
 			System.out.println("Server socket " + n + " on port: " + p + ". From " + start + " to " + stop);
-			ss = new ServerSocket(p);
+			this.ss = ss;
 			s = ss.accept();
 			oos = new ObjectOutputStream(s.getOutputStream());
-			ois = new ObjectInputStream(s.getInputStream());
+			//ois = new ObjectInputStream(s.getInputStream());
 			oos.writeObject(start);
-			oos.writeObject(stop);
+			oos.writeInt(stop);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,15 +30,17 @@ public class Head {
 		
 	}
 
-	public static void main(String[] args) {
-		int c = 1;
+	public static void main(String[] args) throws IOException {
+		int c = 4;
 		int min = 1000;
 		int max = 1000000;
 		int range = (max-min) / c;
 		
+		ServerSocket ss = new ServerSocket(7000);
+		
 		ArrayList<Head> nodes = new ArrayList<Head>();
 		for (int i = 0; i < c; i++) {
-			Head h = new Head(i, 7000+i, range * i, range * (i + 1));
+			Head h = new Head(i, 7000, range * i, range * (i + 1), ss);
 			nodes.add(h);
 		}
 	}
