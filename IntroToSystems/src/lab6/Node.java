@@ -40,11 +40,7 @@ public class Node {
 	}
 
 	public static void main(String[] args) {
-		int c = 4;
-		ArrayList<Node> nodes = new ArrayList<Node>();
-		for (int i = 0; i < c; i++) {
-			nodes.add(new Node(i, 7000));
-		}
+		Node n = new Node(0, 7000);
 	}
 	
 	public int isPrime(int x){
