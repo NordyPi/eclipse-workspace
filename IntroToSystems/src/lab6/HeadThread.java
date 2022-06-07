@@ -7,8 +7,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import threaded_prime_finder.ThreadedPrimeFinder;
-
 public class HeadThread {
 
 	public static void main(String[] args) throws IOException {
