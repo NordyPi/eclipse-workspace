@@ -96,11 +96,12 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		painter.addMouseListener(this);
 		content.add(painter, BorderLayout.CENTER);
 
-		// TODO: And later you will add the chat panel to the SOUTH
+		// Creates all of the chat section stuff
+		// TODO:: scrollbar!
 		JPanel chat = new JPanel();
 		JPanel messagePanel = new JPanel();
 		JPanel historyPanel = new JPanel();
-		historyPanel.setLayout(new GridLayout(1, 1));
+		historyPanel.setLayout(new BorderLayout());
 		messagePanel.setLayout(new GridLayout(1, 2));
 		chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
 		messageText = new JTextArea("Enter message here");
@@ -109,7 +110,9 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		chatHistory.setBackground(Color.GRAY);
 		chatHistory.setEditable(false);
 		chatHistory.setPreferredSize(new Dimension(100, 100));
+		JScrollPane scroll = new JScrollPane(chatHistory);
 		JButton sendButton = new JButton("Send Message");
+		historyPanel.add(scroll);
 		sendButton.addActionListener(this);
 		sendButton.setActionCommand("message");
 		messagePanel.add(messageText);
