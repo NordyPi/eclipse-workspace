@@ -17,21 +17,28 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 	private Socket socket;
 	private ObjectOutputStream oos;
 	private String runThread;
+	private String userName;
+	private String chatHist;
+	private JTextArea chatHistory;
+	private JTextArea messageText;
 
 	public static void main(String[] args) {
 		Painter paint = new Painter();
 	}
 	
 	public Painter() {
+		// sets up the socket
 		try {
 			socket = new Socket("localhost", 7000);
 			oos = new ObjectOutputStream(socket.getOutputStream());
 		} catch (IOException e1) {
 			
 		}
-		runThread = "y";
+		// set default variables and window behavior
+		chatHist = "";
 		s = Shape.LINE;
 		c = Color.BLACK;
+		runThread = "y";
 		setSize(500, 500);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
@@ -89,21 +96,43 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		painter.addMouseListener(this);
 		content.add(painter, BorderLayout.CENTER);
 
-		// TODO: And later you will add the chat panel to the SOUT
+		// TODO: And later you will add the chat panel to the SOUTH
+		JPanel chat = new JPanel();
+		JPanel messagePanel = new JPanel();
+		JPanel historyPanel = new JPanel();
+		historyPanel.setLayout(new GridLayout(1, 1));
+		messagePanel.setLayout(new GridLayout(1, 2));
+		chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
+		messageText = new JTextArea("Enter message here");
+		messageText.setBackground(Color.LIGHT_GRAY);
+		chatHistory = new JTextArea();
+		chatHistory.setBackground(Color.GRAY);
+		chatHistory.setEditable(false);
+		chatHistory.setPreferredSize(new Dimension(100, 100));
+		JButton sendButton = new JButton("Send Message");
+		sendButton.addActionListener(this);
+		sendButton.setActionCommand("message");
+		messagePanel.add(messageText);
+		messagePanel.add(sendButton);
+		historyPanel.add(chatHistory);
+		chat.add(messagePanel);
+		chat.add(historyPanel);
+		content.add(chat, BorderLayout.SOUTH);
 		
-
 		// Lastly, connect the holder to the JFrame
 		addWindowListener(this);
 		setContentPane(content);
 		
-
 		// And make it visible to layout all the components on the screen
 		setVisible(true);
 		
-		// makes new thread to handle server updates
-		UpdateThread t = new UpdateThread(socket, painter, runThread, oos);
-		t.start();
+		// asks for name and sets window name
+		userName = JOptionPane.showInputDialog("Enter your username");
+		setTitle(userName + "'s SocketPainter");
 		
+		// makes new thread to handle server updates
+		UpdateThread t = new UpdateThread(socket, painter, runThread, oos, userName, chatHist, chatHistory);
+		t.start();
 	}
 
 	@Override
@@ -119,6 +148,13 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 			s = Shape.CIRCLE;
 		} else if (in.equals("line")) {
 			s = Shape.LINE;
+		} else if (in.equals("message")) {
+			try {
+				oos.writeObject(userName + ": " + messageText.getText() + "\n");
+				messageText.setText("");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 
@@ -176,10 +212,15 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 
 	@Override
 	public void windowClosing(WindowEvent e) {
+		// handles closing the socket when the window closes
 		System.out.println("closing window");
 		runThread = "n";
-
-		
+		try {
+			oos.writeObject(new String(userName + " has left the chat."));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println("socket closed");
 	}
 
 	@Override
@@ -219,12 +260,19 @@ class UpdateThread extends Thread {
 	private PaintingPanel painter;
 	private String runThread;
 	private ObjectOutputStream oos;
+	private String userName;
+	private JTextArea chatBox;
+	private String chatHist;
 	
-	public UpdateThread(Socket s, PaintingPanel painter, String run, ObjectOutputStream oos) {
+	// recieves info from the main method to control socket input and output
+	public UpdateThread(Socket s, PaintingPanel painter, String run, ObjectOutputStream oos, String userName, String chatHist, JTextArea chatBox) {
 		this.s = s;
 		this.painter = painter;
 		this.runThread = run;
 		this.oos = oos;
+		this.userName = userName;
+		this.chatBox = chatBox;
+		this.chatHist = chatHist;
 		try {
 			this.ois = new ObjectInputStream(s.getInputStream());
 		} catch (IOException e) {
@@ -235,18 +283,26 @@ class UpdateThread extends Thread {
 	public void run() {
 		ArrayList<PaintingPrimitive> prims;
 		try {
+			// reads in the list of prims from the server, adds to its own list, and paints them
 			prims = (ArrayList<PaintingPrimitive>) ois.readObject();
+			System.out.println(prims.size());
 			for (PaintingPrimitive p: prims) {
 				painter.addPrimitive(p);
 			}
 			painter.repaint();
+			oos.writeObject(new String(userName));
+			// continually waits for new drawings from the server, adds them to list, and paints
+			// stops when the window is closed, changing string value
 			while (runThread.equals(new String("y"))) {
-				PaintingPrimitive prim = (PaintingPrimitive) ois.readObject();
-				painter.addPrimitive(prim);
+				Object o = ois.readObject();
+				if (o.getClass() == Line.class || o.getClass() == Circle.class) {
+					painter.addPrimitive((PaintingPrimitive) o);
+				} else {
+					chatHist = chatHist + o.toString();
+					chatBox.setText(chatHist);
+				}
 				painter.repaint();
 			}
-			System.out.println("socket closed");
-			oos.writeObject(null);
 			s.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
