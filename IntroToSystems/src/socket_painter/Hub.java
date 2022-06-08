@@ -59,6 +59,7 @@ class PainterThread extends Thread {
 	private ArrayList<PaintingPrimitive> prims;
 	ArrayList<ObjectOutputStream> outputs;
 	private ArrayList<Socket> socketList;
+	private boolean runThread = true;
 	
 	public PainterThread(Socket s, ArrayList<PaintingPrimitive> prims, ArrayList<Socket> socketList, ArrayList<ObjectOutputStream> outputs) {
 		this.s = s;
@@ -67,21 +68,30 @@ class PainterThread extends Thread {
 		this.outputs = outputs;
 	}
 	
+	public synchronized void sendUpdates(PaintingPrimitive pp) {
+		prims.add(pp);
+		for (ObjectOutputStream out: outputs) {
+			try {
+				out.writeObject(pp);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void run() {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
-			while(true) {
+			while(runThread) {
 				PaintingPrimitive pp = (PaintingPrimitive) ois.readObject();
-				prims.add(pp);
-				System.out.println(prims.size());
-				System.out.println(pp.toString());
-				for (ObjectOutputStream out: outputs) {
-					out.writeObject(pp);
-				}
-
+				sendUpdates(pp);
 			}
 		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
+			runThread = false;
+			int index  = socketList.indexOf(s);
+			System.out.println("socket disconnected, index: " + index);
+			socketList.remove(index);
+			outputs.remove(index);
 		}
 		
 	}

@@ -16,7 +16,7 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 	private Point temp;
 	private Socket socket;
 	private ObjectOutputStream oos;
-	private ObjectInputStream ois;
+	private String runThread;
 
 	public static void main(String[] args) {
 		Painter paint = new Painter();
@@ -29,7 +29,7 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		} catch (IOException e1) {
 			
 		}
-		
+		runThread = "y";
 		s = Shape.LINE;
 		c = Color.BLACK;
 		setSize(500, 500);
@@ -89,7 +89,8 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		painter.addMouseListener(this);
 		content.add(painter, BorderLayout.CENTER);
 
-		// TODO: And later you will add the chat panel to the SOUTH
+		// TODO: And later you will add the chat panel to the SOUT
+		
 
 		// Lastly, connect the holder to the JFrame
 		addWindowListener(this);
@@ -100,7 +101,7 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 		setVisible(true);
 		
 		// makes new thread to handle server updates
-		UpdateThread t = new UpdateThread(socket, painter);
+		UpdateThread t = new UpdateThread(socket, painter, runThread, oos);
 		t.start();
 		
 	}
@@ -175,13 +176,9 @@ public class Painter extends JFrame implements ActionListener, MouseListener, Wi
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		System.out.println("socket closed");
-		try {
-			socket.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		System.out.println("closing window");
+		runThread = "n";
+
 		
 	}
 
@@ -220,10 +217,14 @@ class UpdateThread extends Thread {
 	private Socket s;
 	private ObjectInputStream ois;
 	private PaintingPanel painter;
+	private String runThread;
+	private ObjectOutputStream oos;
 	
-	public UpdateThread(Socket s, PaintingPanel painter) {
+	public UpdateThread(Socket s, PaintingPanel painter, String run, ObjectOutputStream oos) {
 		this.s = s;
 		this.painter = painter;
+		this.runThread = run;
+		this.oos = oos;
 		try {
 			this.ois = new ObjectInputStream(s.getInputStream());
 		} catch (IOException e) {
@@ -239,11 +240,14 @@ class UpdateThread extends Thread {
 				painter.addPrimitive(p);
 			}
 			painter.repaint();
-			while (true) {
+			while (runThread.equals(new String("y"))) {
 				PaintingPrimitive prim = (PaintingPrimitive) ois.readObject();
 				painter.addPrimitive(prim);
 				painter.repaint();
 			}
+			System.out.println("socket closed");
+			oos.writeObject(null);
+			s.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
