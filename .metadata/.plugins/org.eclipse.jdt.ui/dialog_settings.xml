@@ -105,6 +105,7 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\asus\eclipse-workspace\Project Exports\NordSocketPainter.jar"/>
 			<item value="C:\Users\asus\eclipse-workspace\Project Exports\assignment2.jar"/>
 			<item value="C:\Users\asus\eclipse-workspace\Project Exports\assignment1.jar"/>
 		</list>

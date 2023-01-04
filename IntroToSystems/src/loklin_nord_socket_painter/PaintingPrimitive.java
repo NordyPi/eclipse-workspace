@@ -1,4 +1,4 @@
-package socket_painter;
+package loklin_nord_socket_painter;
 
 import java.awt.*;
 import java.io.Serializable;

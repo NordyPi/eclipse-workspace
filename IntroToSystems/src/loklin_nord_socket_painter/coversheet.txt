@@ -1,0 +1,9 @@
+Cover Sheet: Loklin Nord
+Partner: Luke Clements
+Fully working. No extra credit. 
+We spent the last hour trying to implement a scrollbar for the chat since it fills up.
+That didn't end up working. We believe we implemented synchronized in the correct spot.
+Disconnecting works just fine, doesn't throw errors. Helpful console outputs too.
+Chat does send join and disconnect messages, but does not show full history when a new member joins.
+
+Note: Give the Hub time to boot before attempting Painter, sometimes it is slow.

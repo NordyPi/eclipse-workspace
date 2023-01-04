@@ -23,8 +23,6 @@
     <fullyQualifiedTypeName name="edu.du.dudraw.Draw"/>
     <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
     <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
-    <fullyQualifiedTypeName name="java.net.Socket"/>
-    <fullyQualifiedTypeName name="java.net.ServerSocket"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="javax.swing.WindowConstants"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
@@ -32,6 +30,9 @@
     <fullyQualifiedTypeName name="java.awt.Graphics"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.net.ServerSocket"/>
+    <fullyQualifiedTypeName name="java.net.Socket"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
