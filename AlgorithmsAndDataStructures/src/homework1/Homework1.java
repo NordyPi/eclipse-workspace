@@ -2,23 +2,24 @@ package homework1;
 
 public class Homework1 {
 	public static void main(String[] args) {
-		int min = 1;
-		int max = 100;
-		int numberOfTrials = 10;
-		
-		int arrayOne[] = new int[numberOfTrials];
+		int n = 10000;
+		int numberOfTrials = 1000;
+		int coefficientarray[] = new int[n];
+		for (int i = 0; i < n; i++) {
+			coefficientarray[i] = i;
+		}
 		
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < numberOfTrials; i++) {
-			exponentBruteForce
+			polynomialHornersMethod(coefficientarray, 0.5);
 		}
 		long endTime = System.currentTimeMillis();
 		double runTime = (endTime-startTime) / (double) numberOfTrials;
 		System.out.println("N Value: " + numberOfTrials + ", RunTime: " + runTime);
 		}
 	
-	public static int exponentBruteForce(int x, int n) {
-		int total = x;
+	public static double exponentBruteForce(double x, int n) {
+		double total = x;
 		for (int i = 0; i < n; i++) {
 			total = total * x;
 		}
@@ -51,15 +52,15 @@ public class Homework1 {
 		return total;
 	}
 	
-	public static int polynomialBruteForce(int[] coefficients, int x) {
-		int total = 0;
+	public static double polynomialBruteForce(int[] coefficients, double x) {
+		double total = 0;
 		for(int i = 0; i < coefficients.length; i++) {
 			total += coefficients[i] * exponentBruteForce(x, i);
 		}
 		return total;
 	}
 	
-	public static double polynomialHornersMethod(double [] coefficients, double xValue) {
+	public static double polynomialHornersMethod(int [] coefficients, double xValue) {
 		double total = 0;
 		for (int i = coefficients.length - 1; i >= 0; i--) {
 			total = coefficients[i] + (xValue * total);
