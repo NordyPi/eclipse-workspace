@@ -110,4 +110,7 @@
 			<item value="C:\Users\asus\eclipse-workspace\Project Exports\assignment1.jar"/>
 		</list>
 	</section>
+	<section name="WorkingSetModelAwareSelectionDialog">
+		<item key="ShowVisibleOnly" value="true"/>
+	</section>
 </section>
